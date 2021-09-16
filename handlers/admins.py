@@ -22,7 +22,7 @@ async def update_admin(client, message):
     for u in new_ads:
         new_admins.append(u.user.id)
     admins[message.chat.id] = new_admins
-    await message.reply_text("✅ Bot **berhasil dimuat ulang !**\n✅ **Daftar admin** telah **diperbarui !**")
+    await message.reply_text("✅ Bot **berhasil dimuat ulang !**\n• **Daftar admin** telah **diperbarui !**")
 
 
 @Client.on_message(command("pause") & other_filters)
@@ -36,7 +36,7 @@ async def pause(_, message: Message):
         await message.reply_text("❎ Sedang tidak memutar lagu")
     else:
         callsmusic.pytgcalls.pause_stream(chat_id)
-        await message.reply_text("▶️ musik dijeda!")
+        await message.reply_text("▶️ musik dijeda!\n• Gunakan perindah /resume untuk melanjutkan pemutaran")
 
 
 @Client.on_message(command("resume") & other_filters)
@@ -50,7 +50,7 @@ async def resume(_, message: Message):
         await message.reply_text("❎ Tidak ada musik yang dijeda!")
     else:
         callsmusic.pytgcalls.resume_stream(chat_id)
-        await message.reply_text("⏸ musik dilanjutkan!")
+        await message.reply_text("⏸ musik dilanjutkan!\n• Gunakan perintah /end untuk menghentikan pemutaran.")
 
 
 @Client.on_message(command("end") & other_filters)
@@ -67,7 +67,7 @@ async def stop(_, message: Message):
             pass
 
         callsmusic.pytgcalls.leave_group_call(chat_id)
-        await message.reply_text("⏹ streaming dihentikan!")
+        await message.reply_text("🔴 **userbot telah terputus dari obrolan suara!**")
 
 
 @Client.on_message(command("skip") & other_filters)
