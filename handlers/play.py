@@ -512,6 +512,9 @@ async def play(_, message: Message):
                     InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"),
                     InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
                 ],
+                [
+                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/todorokiproject")
+                ],
             ]
         )
         file_name = get_file_name(audio)
@@ -556,6 +559,9 @@ async def play(_, message: Message):
                 [
                     InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"),
                     InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
+                ],
+                [
+                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/todorokiproject")
                 ],
             ]
         )
@@ -624,7 +630,7 @@ async def play(_, message: Message):
                 views = results[0]["views"]
             except Exception as e:
                 await lel.edit(
-                "**❎ lagu tidak ditemukan**\n\n• mohon tulis judul dengan benar\n**Contoh :** `/play happier olivia rodrigo`"
+                "**❎ lagu tidak ditemukan**\n\n• mohon tulis judul dengan benar\n**Contoh :** `/play partai perindo remix`"
             )
                 print(str(e))
                 return
@@ -635,7 +641,10 @@ async def play(_, message: Message):
                 [
                     InlineKeyboardButton("Menu", callback_data="menu"),
                     InlineKeyboardButton("Close", callback_data="cls")
-                ]
+                ],
+                [
+                    InlineKeyboardButton("ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/todorokiproject")
+                ],
             ]
         )
             requested_by = message.from_user.first_name
@@ -736,6 +745,9 @@ async def lol_cb(b, cb):
                 [
                     InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"),
                     InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
+                ],
+                [
+                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/todorokiproject")
                 ],
             ]
         )
@@ -843,7 +855,7 @@ async def ytplay(_, message: Message):
             f"<i>{user.first_name} was banned in this group, ask admin to unban @{ASSISTANT_NAME} manually.</i>"
         )
         return
-    await lel.edit("🔎 **mencari lagu** 🔎")
+    await lel.edit("🔎 **mencari lagu**")
     user_id = message.from_user.id
     user_name = message.from_user.first_name
      
@@ -880,6 +892,9 @@ async def ytplay(_, message: Message):
                 [
                     InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"),
                     InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
+                ],
+                [
+                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/todorokiproject")
                 ],
             ]
         )
