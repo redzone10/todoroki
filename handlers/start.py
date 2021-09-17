@@ -29,124 +29,20 @@ async def _human_time_duration(seconds):
     return ', '.join(parts)
 
 
-@Client.on_message(command("start") & filters.private & ~filters.edited)
-async def start_(client: Client, message: Message):
-    await message.reply_text(
-        f"""<b>🕊️ **Hallo, saya {message.from_user.mention}** \n
-💭 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) Adalah sebuah bot yang dirancang untuk memutar musik di obrola suara !**
-💡 **Untuk melihat beberapa perintah dalam penggunaan bot bisa klik » 📚 Commands !**
-❓ **Atau info lebih lanjut bisa mengetik /help**
-</b>""",
-        reply_markup=InlineKeyboardMarkup(
-            [ 
-                [
-                    InlineKeyboardButton(
-                        "➕ Add me to your Group ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
-                ],[
-                    InlineKeyboardButton(
-                        "❓ How to use Me", callback_data="cbhowtouse"
-                    ),
-                    InlineKeyboardButton(
-                        "✨ Donate", url=f"https://t.me/{OWNER_NAME}")
-                ],[
-                    InlineKeyboardButton(
-                        "👥 Official Group", url=f"https://t.me/{GROUP_SUPPORT}"
-                    ),
-                    InlineKeyboardButton(
-                        "📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
-                    )
-                ]
-            ]
-        ),
-     disable_web_page_preview=True
-    )
-
-
-@Client.on_message(command(["start", f"start@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
-async def start(client: Client, message: Message):
-    start = time()
-    m_reply = await message.reply_text("Starting...")
-    current_time = datetime.utcnow()
-    uptime_sec = (current_time - START_TIME).total_seconds()
-    uptime = await _human_time_duration(int(uptime_sec))
-    delta_ping = time() - start
-    await m_reply.edit_text(
-        f"""✅ **Bot sedang aktif**\n\n• **Kecepatan :** `{delta_ping * 1000:.3f} ms`\n<b>• **Uptime bot :**</b> `{uptime}`""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "Group", url=f"https://t.me/{GROUP_SUPPORT}"
-                    ),
-                    InlineKeyboardButton(
-                        "Bantuan", callback_data="cbguide"
-                    )
-                ]
-            ]
-        )
-    )
-
-@Client.on_message(command(["help", f"help@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
-async def help(client: Client, message: Message):
-    await message.reply_text(
-        f"""<b>👋🏻 **Hello** {message.from_user.mention()}</b>
-**Please press the button below to read the explanation and see the list of available commands !**
-
-💡 Bot by @{UPDATES_CHANNEL}""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        text=" HOW TO USE ME", callback_data=f"cbguide"
-                    )
-                ]
-            ]
-        )
-    )
-
-@Client.on_message(command("help") & filters.private & ~filters.edited)
-async def help_(client: Client, message: Message):
-    await message.reply_text(
-        f"""<b>💡 Hello {message.from_user.mention} welcome to the help menu !</b>
-
-**in this menu you can open several available command menus, in each command menu there is also a brief explanation of each command**
-
-💡 Bot by @{UPDATES_CHANNEL}""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "▶️", callback_data="cbguide"
-                    )
-                ]
-            ]
-        )
-    )
-
-
-@Client.on_message(command(["ping", f"ping@{BOT_USERNAME}"]) & ~filters.edited)
-@authorized_users_only
-async def ping_pong(client: Client, message: Message):
-    start = time()
-    m_reply = await message.reply_text("pinging...")
-    delta_ping = time() - start
-    await m_reply.edit_text(
-        "🏓 **PONG!!**\n"
-        f" `{delta_ping * 1000:.3f} ms`"
-    )
-
-
 @Client.on_message(command(["alive", f"alive@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
 async def start(client: Client, message: Message):
     await message.reply_photo(
         photo=f"{BOT_IMAGE}"
-        caption="🕊️ Hey I'm alive for playing music !\n\n🔴 Bot name : Kennedy music\n",
+        caption="🕊️ Hey I'm alive todoroki !\n\n🔴 Bot name : Todoroki Robot\n",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "Support", url="https://t.me/Kenbotsupport"
-                    )
+                        "Support", url="https://t.me/todorokisupportgrup"
+                    ),
+                    InlineKeyboardButton(
+                        "updates", url="https://t.me/todorokiproject"
+                    ),
                 ]
             ]
         )
